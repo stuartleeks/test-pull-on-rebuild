@@ -1,5 +1,7 @@
 FROM debian:buster-slim
 
-RUN date > /date.txt
-RUN echo "build-date() { cat /date.txt; }" >> /root/.bashrc
+RUN apt-get update && apt-get install -y git
+
+RUN date > /base-date.txt
+RUN echo "base-build-date() { cat /base-date.txt; }" >> /root/.bashrc
 
